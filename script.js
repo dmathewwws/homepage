@@ -18,6 +18,25 @@ if (btn) { // Detect clicks on the button
   };
 }
 
+// Array of profile picture URLs
+const profilePics = [
+  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/daniel-profile-pic.jpg",
+  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/hidden-profile-pic.jpg",
+  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/dan_3.jpg",
+  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/dan_4.jpg",
+  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/dan_5.jpg",
+];
+
+// Get the profile picture element
+const profilePic = document.querySelector(".profile-pic");
+let currentPicIndex = 0;
+
+if (profilePic) {
+  profilePic.onclick = function() {
+    currentPicIndex = (currentPicIndex + 1) % profilePics.length;
+    profilePic.src = profilePics[currentPicIndex];
+  };
+}
 
 // ----- GLITCH STARTER PROJECT HELPER CODE -----
 
