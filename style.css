@@ -88,20 +88,6 @@ body {
   width: 100%;
 }
 
-.footer a:not(.btn--remix):not(.social-profile-icon):link,
-.footer a:not(.btn--remix):not(.social-profile-icon):visited {
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  color: #000;
-  text-decoration: none;
-  border-style: none;
-}
-.footer a:not(.social-profile-icon):hover {
-  background: var(--color-primary);
-}
-
 /* Make this rule more specific to override the yellow background */
 .footer .social-icons .social-profile-icon:hover {
   background: none;
@@ -135,6 +121,11 @@ body {
   justify-content: center;
 }
 
+/* Add this new rule to override center alignment for h2 */
+.content h2 {
+  align-self: flex-start;
+}
+
 /* Very light scaling for our illustration */
 .title {
   color: var(--color-text-header);
@@ -143,15 +134,31 @@ body {
   font-weight: bold;
   font-size: 60px;
   line-height: 105%;
-  margin: 2rem 0;
+  margin: 2rem 0 0 0;
   text-align: center;
   width: 100%;
+}
+
+.subtitle {
+  font-family: HK Grotesk;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 105%;
+  text-align: center;
+}
+/* Subheading */
+h2 {
+  color: var(--color-text-header);
 }
 
 /* Add responsive font size for mobile devices */
 @media screen and (max-width: 768px) {
   .title {
     font-size: 42px;
+  }
+  .subtitle {
+    font-size: 16px;
   }
 }
 
@@ -170,30 +177,13 @@ body {
 
 /* Instructions */
 .instructions {
-  margin: 1rem auto 0;
-}
-
-/* Button - Add it from the README instructions */
-button,
-input {
-  font-family: inherit;
-  font-size: 100%;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  transition: 500ms;
-}
-
-/* Subheading */
-h2 {
-  color: var(--color-text-header);
+  margin: 0 1rem auto 0;
 }
 
 .social-icons {
   display: flex;
   gap: 1.5rem;
+  margin-top: 1rem;
   justify-content: center;
 }
 
@@ -221,6 +211,48 @@ h2 {
   transform: scale(1.1);  /* Slightly increase size on hover */
 }
 
+.link-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.link-list li {
+  margin-bottom: 1rem;
+}
+
+.link-list a {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;  /* Changed to affect all properties */
+  border: 1px solid rgba(0, 0, 0, 0.1);  /* Added subtle border */
+  background-color: rgba(255, 255, 255, 0.5);  /* Added slight background */
+}
+
+.link-list a:hover,
+.link-list a:active {  /* Added active state for touch */
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(1px);  /* Slight push effect */
+  border-color: rgba(0, 0, 0, 0.2);  /* Darker border on interaction */
+}
+
+.link-list img {
+  width: 48px;
+  height: 48px;
+  margin-right: 1rem;
+  border-radius: 4px;
+}
+
+.link-list span {
+  color: #333;
+  font-size: 1rem;
+}
+
 /* Links that open files in the editor */
 .fileopener {
   cursor: pointer;
@@ -245,4 +277,48 @@ h2 {
 
 .hosted-on a {
   font-weight: bold;
+  text-underline-offset: 0.3rem;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.post-list li {
+  margin-bottom: 1rem;
+}
+
+.post-list a {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;  /* Changed to affect all properties */
+  border: 1px solid rgba(0, 0, 0, 0.1);  /* Added subtle border */
+  background-color: rgba(255, 255, 255, 0.5);  /* Added slight background */
+}
+
+.post-list a:hover,
+.post-list a:active {  /* Added active state for touch */
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(1px);  /* Slight push effect */
+  border-color: rgba(0, 0, 0, 0.2);  /* Darker border on interaction */
+}
+
+.post-list img {
+  width: 85px;  /* Increased width for rectangular shape */
+  height: 48px;  /* Kept original height */
+  margin-right: 1rem;
+  border-radius: 4px;
+  object-fit: cover;  /* Added to ensure images cover the area nicely */
+}
+
+.post-list span {
+  color: #333;
+  font-size: 1rem;
 }
