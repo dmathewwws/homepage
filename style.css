@@ -322,3 +322,24 @@ h2 {
   color: #333;
   font-size: 1rem;
 }
+
+/* [eo-block="powered-by"] {
+    display: none !important;
+} */
+
+.newsletter-section {
+  text-align: center;
+  max-width: 600px;
+  margin: 0rem auto;
+}
+
+.newsletter-link {
+  color: var(--color-text-header);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-color: var(--color-text-header); /* Match initial text color */
+}
+
+.newsletter-link:hover {
+  text-decoration-color: var(--color-primary); /* Only underline changes to yellow */
+}
