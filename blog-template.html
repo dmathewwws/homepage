@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{{title}} - Daniel Mathews</title>
+    <meta name="description" content="{{description}}" />
+    <meta name="author" content="{{author}}" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://dmathewwws.com/{{slug}}.html" />
+    <meta property="article:published_time" content="{{date}}" />
+    <meta property="article:author" content="{{author_url}}" />
+    
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./blog-style.css" />
+  </head>
+  <body>
+    <div class="blog-wrapper">
+      <nav class="blog-nav">
+        <a href="/" class="back-home">← Back to Home</a>
+      </nav>
+      <article class="blog-content">
+        <header class="blog-header">
+          <h1>{{title}}</h1>
+          <div class="blog-meta">
+            <time datetime="{{date}}">{{formatted_date}}</time>
+          </div>
+        </header>
+        <div class="blog-body">
+          {{content}}
+        </div>
+        <footer class="author-info">
+          <img src="{{author_image}}" alt="{{author}}" />
+          <div class="author-details">
+            <p class="author-name">{{author}}</p>
+            <p class="post-date">Written on {{formatted_date}}</p>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html> 
