@@ -29,9 +29,6 @@
       <article class="blog-content">
         <header class="blog-header">
           <h1>{{title}}</h1>
-          <div class="blog-meta">
-            <time datetime="{{date}}">{{formatted_date}}</time>
-          </div>
         </header>
         <div class="blog-body">
           {{content}}
@@ -39,7 +36,7 @@
         <footer class="author-info">
           <img src="{{author_image}}" alt="{{author}}" />
           <div class="author-details">
-            <p class="author-name">{{author}}</p>
+            <p class="author-name"><a href="{{author_url}}" target="_blank">{{author}}</a></p>
             <p class="post-date">Written on {{formatted_date}}</p>
           </div>
         </footer>
