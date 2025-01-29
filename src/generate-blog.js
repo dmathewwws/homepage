@@ -96,19 +96,19 @@ async function processMarkdownFile(filePath) {
 async function generateBlogPages() {
   try {
     // Read template
-    const template = await fs.readFile('blog-template.html', 'utf8');
+    const template = await fs.readFile(path.join(__dirname, 'blog-template.html'), 'utf8');
     
     // Create blog directory if it doesn't exist
-    await fs.mkdir('blogs-generated').catch(() => {});
+    await fs.mkdir(path.join(__dirname, '..', 'blogs-generated')).catch(() => {});
     
     // Get all markdown files
-    const files = await fs.readdir('blogs-drafts');
+    const files = await fs.readdir(path.join(__dirname, '..', 'blogs-drafts'));
     const mdFiles = files.filter(file => file.endsWith('.md'));
     
     // Process each markdown file
     const blogPosts = [];
     for (const file of mdFiles) {
-      const filePath = path.join('blogs-drafts', file);
+      const filePath = path.join(__dirname, '..', 'blogs-drafts', file);
       const postData = await processMarkdownFile(filePath);
       blogPosts.push(postData);
       
@@ -119,26 +119,23 @@ async function generateBlogPages() {
       });
       
       // Write the blog post file to blogs-generated directory
-      const outputPath = path.join('blogs-generated', `${postData.slug}.html`);
+      const outputPath = path.join(__dirname, '..', 'blogs-generated', `${postData.slug}.html`);
       await fs.writeFile(outputPath, postHtml);
     }
     
     // Sort blog posts by date (newest first)
     blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
     
-    // Update index.html with blog posts
-    // await updateIndexWithPosts(blogPosts);
-    
     // Move all generated files to root directory
-    const generatedFiles = await fs.readdir('blogs-generated');
+    const generatedFiles = await fs.readdir(path.join(__dirname, '..', 'blogs-generated'));
     for (const file of generatedFiles) {
-      const sourcePath = path.join('blogs-generated', file);
-      const destPath = path.join('.', file);
+      const sourcePath = path.join(__dirname, '..', 'blogs-generated', file);
+      const destPath = path.join(__dirname, '..', file);
       await fs.rename(sourcePath, destPath);
     }
     
     // Remove the blogs-generated directory
-    await fs.rmdir('blogs-generated');
+    await fs.rmdir(path.join(__dirname, '..', 'blogs-generated'));
     
     console.log(`Generated ${blogPosts.length} blog posts and moved them to root directory`);
   } catch (error) {

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Static blog generator for dmathewwws.com",
   "main": "generate-blog.js",
+  "license": "MIT",
   "scripts": {
     "generate": "node generate-blog.js"
   },
