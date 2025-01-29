@@ -95,8 +95,8 @@ async function processMarkdownFile(filePath) {
 // Generate blog pages from markdown files
 async function generateBlogPages() {
   try {
-    // Read template
-    const template = await fs.readFile(path.join(__dirname, 'blog-template.html'), 'utf8');
+    // Read template from root directory instead of src
+    const template = await fs.readFile(path.join(__dirname, '..', 'blog-template.html'), 'utf8');
     
     // Create blog directory if it doesn't exist
     await fs.mkdir(path.join(__dirname, '..', 'blogs-generated')).catch(() => {});

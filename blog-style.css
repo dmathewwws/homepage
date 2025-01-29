@@ -17,6 +17,11 @@ body {
   margin-bottom: 3rem;
 }
 
+/* Add top margin when nav appears after article */
+article + .blog-nav {
+  margin-top: 3rem;
+}
+
 .back-home {
   color: #37352f;
   text-decoration: none;
