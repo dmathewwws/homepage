@@ -459,3 +459,54 @@ h2 {
 strong {
   font-weight: 600;
 }
+
+.inkverse-card {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+.inkverse-card:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.inkverse-card > a {
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+}
+
+.inkverse-card > a:hover,
+.inkverse-card > a:active {
+  background: none;
+  transform: none;
+  border-color: transparent;
+}
+
+.cofounder-note {
+  display: block;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-left: calc(48px + 1rem);
+  background: linear-gradient(135deg, rgba(255, 100, 150, 0.18), rgba(240, 80, 130, 0.10));
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.cofounder-note a {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  color: var(--color-text-header);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
